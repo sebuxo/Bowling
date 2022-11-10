@@ -22,26 +22,21 @@ public class BowlingGameTest {
 		assertEquals(0, g.score());
 	}
 	
-	@Test
-	public void testAllOnes() {
-		rollMany(20, 1, g);
-		assertEquals(20, g.score());
-	}
 
 	@Test
-	public void testOneSpare() {
-		g.roll(5);
-		g.roll(5);
+	public void testSpare() {
+		g.roll(7);
+		g.roll(3);
 		g.roll(3);
 		rollMany(17, 0, g);
 		assertEquals(16, g.score());
 	}
 	
 	@Test
-	public void testOneStrike() {
+	public void testStrike() {
 		g.roll(10);
-		g.roll(3);
-		g.roll(4);
+		g.roll(1);
+		g.roll(6);
 		rollMany(16, 0, g);
 		assertEquals(24, g.score());
 	}

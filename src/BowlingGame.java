@@ -1,13 +1,11 @@
 public class BowlingGame {
-	int[] rolls;
-	int currentRoll;
-
+	int[] parties;
+	int partieActuel;
 	public BowlingGame() {
-		this.rolls = new int[21];
+		this.parties = new int[30];
 	}
-
 	public void roll(int p) {
-		rolls[currentRoll++] = p;
+		parties[partieActuel++] = p;
 	}
 
 	public int score() {
@@ -31,7 +29,7 @@ public class BowlingGame {
 	}
 
 	private boolean isStrike(int frame) {
-		return rolls[frame] == 10;
+		return parties[frame] == 10;
 	}
 
 	private boolean isSpare(int frame) {
@@ -43,10 +41,10 @@ public class BowlingGame {
 	}
 
 	private int spareBonus(int frame) {
-		return rolls[frame+2];
+		return parties[frame+2];
 	}
 
 	private int sumOfRolls(int frame) {
-		return rolls[frame] + rolls[frame+1];
+		return parties[frame] + parties[frame+1];
 	}
 }
