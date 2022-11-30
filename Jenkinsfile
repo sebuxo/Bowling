@@ -9,10 +9,20 @@ pipeline {
                  git credentialsId: 'github', url: 'https://github.com/sebuxo/Bowling'
             }
         }
-
+stage('Show Files') {
+        environment {
+          MY_FILES = sh(script: 'ls -l', returnStdout: true)
+        }
+        steps {
+          sh '''
+            echo "$MY_FILES"
+          '''
+        }
+    }
         stage('Build'){
             steps{
-                sh 'cd src ;' //javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" BowlingGameTest.java BowlingGame.java'
+            echo 'zb'
+              //  sh 'cd src ;' //javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" BowlingGameTest.java BowlingGame.java'
             }
         }
 
