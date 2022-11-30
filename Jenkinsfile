@@ -10,20 +10,10 @@ pipeline {
             }
         }
 
-        stage('Show Files') {
-                environment {
-                  GIT_COMMIT_EMAIL = sh (
-                      script: 'ls -l',
-                      returnStdout: true
-                  ).trim()
-
-
-                }
-                steps {
-
-echo "Git committer email: ${GIT_COMMIT_EMAIL}"
-                }
+        stage('Build'){
+            steps{
+                sh 'cd src ; javac -cp "../lib/junit-platform-console-standalone-1.7.0-all.jar" BowlingGameTest.java BowlingGame.java'
             }
-
+        }
     }
 }
