@@ -12,12 +12,15 @@ pipeline {
 
         stage('Show Files') {
                 environment {
-                  MY_FILES = ls
+                  GIT_COMMIT_EMAIL = sh (
+                      script: 'git --no-pager show -s --format='%ae'',
+                      returnStdout: true
+                  ).trim()
+
                 }
                 steps {
 
-                    echo "$MY_FILES"
-
+echo "Git committer email: ${GIT_COMMIT_EMAIL}"
                 }
             }
 
