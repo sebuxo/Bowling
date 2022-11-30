@@ -11,8 +11,12 @@ pipeline {
         }
 
         stage('Show Files') {
+                environment {
+                  MY_FILES = ls -l, returnStdout: true)
+                }
                 steps {
-                   echo "zbyeb"
+
+                    echo "$MY_FILES"
 
                 }
             }
