@@ -16,6 +16,7 @@ pipeline {
                 }
                 steps {
                   sh '''
+
                     echo "$MY_FILES"
                   '''
                 }
