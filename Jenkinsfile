@@ -7,7 +7,7 @@ pipeline {
             steps{
                 cleanWs()
                 checkout scm: [$class: 'GitSCM', branches: [[name: '/master']],userRemoteConfigs:
-                [[credentialsId: 'bowling-ssh', url: 'git@github.com:sebuxo/Bowling.git']]]
+                [[credentialsId: 'github', url: 'https://github.com/sebuxo/Bowling']]]
             }
         }
 
