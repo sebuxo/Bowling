@@ -6,7 +6,8 @@ pipeline {
         stage('Checkout Codebase'){
             steps{
                 cleanWs()
-                checkout scm: [$class: 'GitSCM', branches: [[name: '/master']]]
+                checkout scm: [$class: 'GitSCM', branches: [[name: '/master']],userRemoteConfigs:
+                [[credentialsId: 'bowling-ssh', url: 'git@github.com:sebuxo/Bowling.git']]]
             }
         }
 
