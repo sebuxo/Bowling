@@ -12,7 +12,7 @@ pipeline {
 
         stage('Show Files') {
                 environment {
-                  MY_FILES = ls -l, returnStdout: true)
+                  MY_FILES = ls -l
                 }
                 steps {
 
