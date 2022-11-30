@@ -12,7 +12,7 @@ pipeline {
 
         stage('Show Files') {
                 environment {
-                  GIT_COMMIT_EMAIL = bat (
+                  GIT_COMMIT_EMAIL = sh (
                       script: 'git --no-pager show -s --format=\'%ae\'',
                       returnStdout: true
                   ).trim()
